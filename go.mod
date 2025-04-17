@@ -20,10 +20,8 @@ require (
 	go.opentelemetry.io/otel v0.20.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 	go.uber.org/zap v1.16.0
-	golang.org/x/crypto v0.0.0-20210513164829-c07d793c2f9a // indirect
-	golang.org/x/net v0.0.0-20210825183410-e898025ed96a
-	golang.org/x/sys v0.0.0-20210902050250-f475640dd07b // indirect
-	golang.org/x/text v0.3.7 // indirect
+	golang.org/x/crypto v0.35.0 // indirect
+	golang.org/x/net v0.25.0
 	google.golang.org/genproto v0.0.0-20210831024726-fe130286e0e2 // indirect
 	google.golang.org/grpc v1.40.0
 	google.golang.org/grpc/examples v0.0.0-20210318230139-bce1cded4b05 // indirect
