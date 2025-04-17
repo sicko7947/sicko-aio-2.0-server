@@ -1,0 +1,8 @@
+syntax = "proto3";
+package protobuf;
+option go_package = "rpc;grpc_service";
+
+message Errors{
+    int64 Code = 1;
+    string Message = 2;
+}

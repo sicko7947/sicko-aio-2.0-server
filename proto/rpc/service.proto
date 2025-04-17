@@ -1,0 +1,13 @@
+syntax = "proto3";
+package protobuf;
+
+option go_package = "rpc;grpc_service";
+import "rpc/product.proto";
+import "rpc/kasada.proto";
+
+service Stream{
+    rpc ProductInformation(stream StreamProductInformationRequest) returns(stream StreamProductInformationResponse){};
+    rpc ProductCheckLive(stream StreamProductCheckLiveRequest) returns(stream StreamProductCheckLiveResponse){};
+    rpc ProductMonitor(stream StreamProductMonitorGraphqlRequest) returns(stream StreamProductMonitorGraphqlResponse){};
+    rpc GenKpsdkCt(stream StreamKpsdkCtRequest) returns(stream StreamKpsdkCtResponse){};
+}

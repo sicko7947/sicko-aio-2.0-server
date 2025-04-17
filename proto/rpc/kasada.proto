@@ -1,0 +1,20 @@
+syntax = "proto3";
+package protobuf;
+
+option go_package = "rpc;grpc_service";
+import "rpc/errors.proto";
+
+// Define Stream KpsdkCtRequest Request
+message StreamKpsdkCtRequest{
+    string jobId = 1;
+    string controlFlow = 2;
+
+}
+
+// Define Stream KpsdkCtResponse Response
+message StreamKpsdkCtResponse{
+    string jobId = 1;
+    string kpsdkCt = 2;
+    repeated int64 tlArray = 3;
+    Errors errors = 4;
+}

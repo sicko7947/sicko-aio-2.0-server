@@ -1,0 +1,73 @@
+syntax = "proto3";
+package protobuf;
+
+option go_package = "rpc;grpc_service";
+import "rpc/errors.proto";
+
+message sizeSkuMap{
+    string gtin = 1;
+    string skuId = 2;  
+}
+
+// Define Stream ProductInformation Request
+message StreamProductInformationRequest{
+    repeated string ids = 1;
+    string country = 2;
+    string language =3;
+    string merchGroup = 4;
+    repeated string proxy = 5;
+}
+
+// Define Stream ProductInformation Response
+message StreamProductInformationResponse{
+    message skuData {
+        string status = 1;
+        string productName = 2;
+        string productDescription = 3;
+        string productId = 4;
+        int64 quantityLimit = 5;
+        string launchId = 6;
+        map<string,sizeSkuMap> sizeSkus = 7;
+        string price = 8;
+        string publishType = 9;
+    }
+
+    map<string,skuData> objects = 1;
+    Errors errors = 2;
+}
+
+
+// Define Stream ProductCheckLive Request
+message StreamProductCheckLiveRequest{
+    string productId = 1;
+    string proxy = 2;
+}
+
+// Define Stream ProductCheckLive Response
+message StreamProductCheckLiveResponse{
+    bool live = 1;
+    string startTime = 2;
+    Errors errors = 3;
+    string status = 4; 
+    string publishType = 5;
+    int64 quantityLimit = 6;
+}
+
+
+// Define Stream roductMonitorGraphql Request
+message StreamProductMonitorGraphqlRequest{
+    string productId = 1;
+    string country =2;
+    string locale=3;
+    string proxy = 4;
+}
+
+// Define Stream ProductMonitorGraphql Response
+message StreamProductMonitorGraphqlResponse{
+    string productName = 1;
+    string productDescription = 2;
+    string productId = 3;
+    int64 quantityLimit = 4;
+    map<string,sizeSkuMap> sizeSkuMap = 5;
+    Errors errors = 6;
+}
